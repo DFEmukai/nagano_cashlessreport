@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>長野県のキャッシュレス決済最前線</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 384px;
+            }
+        }
+        .stat-card h3 {
+            font-size: 4rem;
+            line-height: 1;
+            font-weight: 700;
+        }
+        .stat-card p {
+            font-size: 1.125rem;
+        }
+        .flow-card {
+            border-left-width: 4px;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#005f73] mb-2">長野県のキャッシュレス決済最前線</h1>
+            <p class="text-lg text-gray-600">データで見る、信州のキャッシュレス化の現状と未来</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="lg:col-span-1 md:col-span-2 bg-white rounded-lg shadow-md p-6 flex flex-col justify-center items-center text-center stat-card" style="background-color: #005f73; color: white;">
+                <h3>約38%</h3>
+                <p>長野県内の推定キャッシュレス決済比率</p>
+            </div>
+            
+            <div class="lg:col-span-2 md:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#005f73] mb-4">全国平均との比較</h2>
+                <p class="text-gray-600 mb-6">日本のキャッシュレス決済比率は年々上昇しており、2024年には42.8%に達しました。長野県も着実に導入が進んでいますが、全国平均と比較するとまだ成長の余地があることがわかります。特に観光地としてのポテンシャルを活かすためには、さらなる普及が鍵となります。</p>
+                <div class="chart-container">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+                 <p class="text-sm text-gray-500 mt-4 text-center">このグラフは、長野県の推定決済比率と2024年の全国平均を比較したものです。地域経済の活性化に向けて、キャッシュレス化の推進が重要です。</p>
+            </div>
+            
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#005f73] mb-4">県内で利用される主な決済手段</h2>
+                 <p class="text-gray-600 mb-6">キャッシュレス決済と一言で言っても、その種類は多様です。全国的な傾向と同様に、長野県内でもクレジットカードが依然として主流ですが、QRコード決済が急速にシェアを伸ばしています。利便性の高さから、特に小規模店舗や若年層を中心に利用が拡大しています。</p>
+                <div class="chart-container">
+                    <canvas id="paymentMethodsChart"></canvas>
+                </div>
+                 <p class="text-sm text-gray-500 mt-4 text-center">このドーナツグラフは、県内で利用されるキャッシュレス決済手段の構成比率を示しています。多様なニーズに応える決済方法の導入が求められます。</p>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#005f73] mb-4">業種別に見る導入状況</h2>
+                 <p class="text-gray-600 mb-6">キャッシュレス決済の導入率は、業種によって差が見られます。全国の中小企業を対象とした調査では、特に顧客との対面機会が多い小売業や宿泊業、飲食業で高い導入率を示しています。これは顧客からの要望や、会計効率化のニーズが高いことを反映しています。</p>
+                <div class="chart-container">
+                    <canvas id="industryAdoptionChart"></canvas>
+                </div>
+                 <p class="text-sm text-gray-500 mt-4 text-center">この棒グラフは、主要なサービス業における中小企業のキャッシュレス決済導入率を表したものです。顧客体験の向上に直結するため、導入は加速しています。</p>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#005f73] mb-4">導入への道のり：課題と取り組み</h2>
+                 <p class="text-gray-600 mb-6">キャッシュレス化は多くのメリットをもたらしますが、導入にはいくつかの課題も存在します。一方で、行政や決済事業者はこれらの課題を克服するための支援策を講じており、導入のハードルは着実に下がっています。</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-[#ae2012] mb-4">主な課題</h3>
+                        <div class="flow-card border-[#ae2012]">
+                            <h4 class="font-bold">決済手数料の負担</h4>
+                            <p class="text-gray-600">売上に対する数パーセントの手数料が、特に利益率の低い事業者にとって負担となるケースがあります。</p>
+                        </div>
+                        <div class="flow-card border-[#ae2012]">
+                            <h4 class="font-bold">導入・運用コスト</h4>
+                            <p class="text-gray-600">決済端末の購入費用や、月額のシステム利用料が発生する場合があります。</p>
+                        </div>
+                         <div class="flow-card border-[#ae2012]">
+                            <h4 class="font-bold">ITリテラシーへの不安</h4>
+                            <p class="text-gray-600">操作方法やトラブル時の対応など、デジタルツールに不慣れな事業者にとっては不安要素となります。</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-[#0a9396] mb-4">長野県の主な取り組み</h3>
+                         <div class="flow-card border-[#0a9396]">
+                            <h4 class="font-bold">導入補助金の活用</h4>
+                            <p class="text-gray-600">県内の一部の自治体では、中小事業者がキャッシュレス決済を導入する際の費用を補助する制度を設けています。</p>
+                        </div>
+                         <div class="flow-card border-[#0a9396]">
+                            <h4 class="font-bold">観光DXの推進</h4>
+                            <p class="text-gray-600">インバウンド観光客の利便性向上のため、交通機関や観光施設でのキャッシュレス対応を強化しています。</p>
+                        </div>
+                         <div class="flow-card border-[#0a9396]">
+                            <h4 class="font-bold">事業者向けセミナー</h4>
+                            <p class="text-gray-600">商工会議所などが主催し、導入のメリットや具体的な手順を解説するセミナーが開催されています。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6 text-center">
+                 <h2 class="text-2xl font-bold text-[#005f73] mb-4">未来への展望：観光立県としてのキャッシュレス</h2>
+                 <p class="text-gray-600 max-w-4xl mx-auto">雄大な自然と豊かな文化を持つ長野県にとって、観光は経済の重要な柱です。国内外から訪れる観光客に快適な体験を提供するため、キャッシュレス決済の普及は不可欠です。交通、宿泊、飲食、お土産まで、シームレスな決済環境を整備することで、「また訪れたい信州」というブランド価値を高めることができます。地域全体でキャッシュレス化を推進し、新しい時代のおもてなしを実現することが、長野県の未来を切り拓きます。</p>
+            </div>
+        </div>
+        
+        <footer class="text-center mt-12 text-sm text-gray-500">
+            <p>本インフォグラフィックは、公開されている各種調査データを基に作成したものです。(2025年時点)</p>
+        </footer>
+
+    </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const colorPalette = {
+        darkTeal: '#005f73',
+        teal: '#0a9396',
+        mint: '#94d2bd',
+        sand: '#e9d8a6',
+        orange: '#ee9b00',
+        burntOrange: '#ca6702',
+        darkRed: '#9b2226'
+    };
+
+    const wrapLabel = (label, maxLength = 16) => {
+        if (typeof label !== 'string' || label.length <= maxLength) {
+            return label;
+        }
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        for (const word of words) {
+            if ((currentLine + ' ' + word).trim().length > maxLength) {
+                if (currentLine.length > 0) lines.push(currentLine);
+                currentLine = word;
+            } else {
+                currentLine = (currentLine + ' ' + word).trim();
+            }
+        }
+        if (currentLine.length > 0) lines.push(currentLine);
+        return lines;
+    };
+    
+    const commonTooltipConfig = {
+        tooltip: {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                      return label.join(' ');
+                    }
+                    return label;
+                }
+            }
+        }
+    };
+    
+    Chart.defaults.font.family = "'Noto Sans JP', sans-serif";
+
+    const comparisonCtx = document.getElementById('comparisonChart')?.getContext('2d');
+    if (comparisonCtx) {
+        new Chart(comparisonCtx, {
+            type: 'bar',
+            data: {
+                labels: ['長野県 (推定)', '日本全国'],
+                datasets: [{
+                    label: 'キャッシュレス決済比率 (%)',
+                    data: [38.0, 42.8],
+                    backgroundColor: [colorPalette.mint, colorPalette.teal],
+                    borderColor: [colorPalette.mint, colorPalette.teal],
+                    borderWidth: 1,
+                    barPercentage: 0.5,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 50,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    ...commonTooltipConfig,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    const paymentMethodsCtx = document.getElementById('paymentMethodsChart')?.getContext('2d');
+    if (paymentMethodsCtx) {
+        new Chart(paymentMethodsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['クレジットカード', 'QRコード決済', '電子マネー', 'その他'],
+                datasets: [{
+                    label: '利用シェア',
+                    data: [65, 25, 7, 3],
+                    backgroundColor: [
+                        colorPalette.teal,
+                        colorPalette.mint,
+                        colorPalette.orange,
+                        colorPalette.sand
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                 plugins: {
+                    ...commonTooltipConfig,
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    }
+    
+    const industryAdoptionCtx = document.getElementById('industryAdoptionChart')?.getContext('2d');
+    if(industryAdoptionCtx) {
+        new Chart(industryAdoptionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['小売業', '宿泊業', '飲食業'],
+                datasets: [{
+                    label: '導入率 (%)',
+                    data: [85, 84, 82],
+                    backgroundColor: [colorPalette.teal, colorPalette.mint, colorPalette.orange],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                             callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    ...commonTooltipConfig,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>
